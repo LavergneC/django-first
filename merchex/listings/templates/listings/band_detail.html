@@ -16,6 +16,7 @@
 
 <br>
 
+{% if band.listing_set.all %}
 <p>Anonces liées au groupe : </p>
 <ul>
     {% for listing in band.listing_set.all %}
@@ -23,6 +24,8 @@
     {% endfor %}
 </ul>
 <br>
+{% endif %}
+
 <a href="{% url 'band-list' %}">Retour à tous les groupes</a>
 
 {% endblock %}

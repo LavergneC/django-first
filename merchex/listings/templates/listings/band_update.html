@@ -1,9 +1,7 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-        <h1>Contact us !</h1> 
-        <p>Tu met tout bête : tu va avoir le nom par exemple...euh...</p>
-
+        <h1>Mise à jour du groupe</h1>
         <form action="" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}

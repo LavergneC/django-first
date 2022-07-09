@@ -10,5 +10,3 @@ class ListingAdmin(admin.ModelAdmin):
 
 admin.site.register(Band, BandAdmin)
 admin.site.register(Listing, ListingAdmin)
-
-# Register your models here.

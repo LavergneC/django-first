@@ -26,14 +26,12 @@ class Listing(models.Model):
         VEND = 'V'
 
     title = models.fields.CharField(max_length=100)
-    date_creation = models.fields.DateField()
+    date_creation = models.fields.DateField(null=True)
     type = models.fields.CharField(choices=Listing_type.choices, max_length=1)
     description  = models.fields.CharField(max_length=1000)
     price = models.fields.IntegerField()
 
     band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
-
-    #delmepls = models.fields.DateField()
 
     def __str__(self):
         return self.title

@@ -9,4 +9,7 @@
             <li><a href="{% url 'annonce-details' annonce.id %}">{{ annonce.title }}</a></li>
             {% endfor %}
         </ul>
+
+
+        <a href="{% url 'listing-create' %}">Créer une nouvelle annonce</a>
 {% endblock %}
