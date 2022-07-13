@@ -1,0 +1,20 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h1>Supprimer une anononces</h1>
+    <p>Etes-vous sûr de vouloir supprimer l'annonce : <u>{{ annonce.title }}</u> ?</p>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer">
+    </form>
+
+    <!--
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Cancel">
+    </form>
+    -->
+
+{% endblock %}

@@ -104,4 +104,41 @@ def band_update(request, band_id):
     else:
         form = BandForm(instance=band)
 
-    return render(request, 'listings/band_update.html', {'form': form})
+    return render(request, 'listings/band_update.html', {'form': form, 'band': band})
+
+def band_remove(request, band_id):
+    band  = Band.objects.get(id = band_id)
+
+    if request.method == 'POST':
+        #if request.input.value == "Supprimer":
+        band.delete()
+        return redirect('band-list')
+
+    return render(request,
+                'listings/band_delete.html',
+                {'band': band})
+
+def annonce_update(request, annonce_id):
+    listing = Listing.objects.get(id = annonce_id)
+    if request.method == 'POST':
+        form = ListingForm(request.POST, instance = listing)
+        if form.is_valid():
+            form.save() # met à jour l'instance liée
+            return redirect('annonce-details', listing.id)
+    else:
+        form = ListingForm(instance = listing)
+
+    return render(request, 'listings/annonce_update.html', {'form': form, 'annonce': listing})
+
+
+def annonce_remove(request, annonce_id):
+    listing = Listing.objects.get(id = annonce_id)
+
+    if request.method == 'POST':
+        #if request.input.value == "Supprimer":
+        listing.delete()
+        return redirect('liste_annnoces')
+
+    return render(request,
+                'listings/annonce_delete.html',
+                {'annonce': listing})
