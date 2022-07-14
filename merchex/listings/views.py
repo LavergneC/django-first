@@ -110,9 +110,11 @@ def band_remove(request, band_id):
     band  = Band.objects.get(id = band_id)
 
     if request.method == 'POST':
-        #if request.input.value == "Supprimer":
-        band.delete()
-        return redirect('band-list')
+        if request.POST['id'] == "Supprimer":
+            band.delete()
+            return redirect('band-list')
+        else:
+            return redirect('band-detail', band.id)
 
     return render(request,
                 'listings/band_delete.html',
@@ -135,10 +137,15 @@ def annonce_remove(request, annonce_id):
     listing = Listing.objects.get(id = annonce_id)
 
     if request.method == 'POST':
-        #if request.input.value == "Supprimer":
-        listing.delete()
-        return redirect('liste_annnoces')
+        if request.POST['id'] == "Supprimer":
+            listing.delete()
+            return redirect('liste_annnoces')
+        else:
+            return redirect('liste_annnoces')
 
     return render(request,
                 'listings/annonce_delete.html',
                 {'annonce': listing})
+
+def homePage(request):
+    return render(request, 'listings/home.html')

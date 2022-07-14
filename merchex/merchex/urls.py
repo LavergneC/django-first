@@ -18,6 +18,7 @@ from django.urls import path
 from listings import views
 
 urlpatterns = [
+    path('', views.homePage, name='home-page'),
     path('admin/', admin.site.urls),
 
     path('bands/', views.band_list, name='band-list'),

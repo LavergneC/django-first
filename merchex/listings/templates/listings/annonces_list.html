@@ -1,9 +1,7 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-        <h1>Ma liste</h1>
-        <p>Une page pour lister des trucs</p>
-        <p>Les trucs en question: </p>
+        <h1>Les annonces du site !</h1>
         <ul>
             {% for annonce in lists %}
             <li><a href="{% url 'annonce-details' annonce.id %}">{{ annonce.title }}</a>
@@ -12,7 +10,6 @@
             </li>
             {% endfor %}
         </ul>
-
 
         <a href="{% url 'listing-create' %}">Créer une nouvelle annonce</a>
 {% endblock %}
